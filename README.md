@@ -27,9 +27,8 @@ It uses ** MDNS(Multicast DNS) ** to discover peers in the same LAN network.
 Its implementation is given in /cmd/internal/p2p/mdns.go
 
 Brief explanation about MDNS
- ``` 
- Multicast DNS (mDNS) is a computer networking protocol that resolves hostnames to IP addresses within small networks that do not include a local name server. It is a zero-configuration service, using essentially the same programming interfaces, packet formats and operating semantics as unicast Domain Name System (DNS).
- ```
+ 
+ > Multicast DNS (mDNS) is a computer networking protocol that resolves hostnames to IP addresses within small networks that do not include a local name server. It is a zero-configuration service, using essentially the same programming interfaces, packet formats and operating semantics as unicast Domain Name System (DNS).
 
  ## Files description
   - /cmd/disasternet/main.go :- Main file to create the host, discover peers and connect to them.
