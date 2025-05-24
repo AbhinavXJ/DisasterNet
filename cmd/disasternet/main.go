@@ -52,7 +52,6 @@ func GetMessages(w http.ResponseWriter, r *http.Request) {
 
 	}
 	w.Header().Set("Content-Type", "application/json")
-	fmt.Println("message arr: ", MessageArr)
 	err := json.NewEncoder(w).Encode(MessageArr)
 	if err != nil {
 		http.Error(w, "failed to encode messages", http.StatusInternalServerError)
@@ -96,7 +95,7 @@ func main() {
 
 	port := flag.String("port", "", "port")
 	nickFlag := flag.String("nick", "", "nickname to use in chat. will be generated if empty")
-	roomFlag := flag.String("room", "awesome-chat-room", "name of chat room to join")
+	roomFlag := flag.String("room", "chat-room", "name of chat room to join")
 	httpServerRun := flag.Bool("enable-http", false, "run http server on this node")
 
 	// peerAddr := flag.String("peer-address", "", "peer address")
