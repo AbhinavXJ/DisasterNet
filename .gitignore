@@ -1,0 +1,14 @@
+# Go
+
+
+# Node (Vite)
+frontend/node_modules/
+frontend/dist/
+
+# IDEs
+*.log
+.vscode/
+.idea/
+
+# Env files
+**/.env
