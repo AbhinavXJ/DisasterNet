@@ -10,20 +10,19 @@
 In areas hit with natural disasters tend to have no internet connectivity. Using this system, any number of devices (the rescue team or the civilians) can communicate with each other as long as they are connected to a same network via wifi/hotspot/ethernet LAN.
 
 ## How does this work?
-It uses [libp2p-go]() library to establish peer-2-peer connections.
+It uses [libp2p-go](https://github.com/libp2p/go-libp2p) library to establish peer-2-peer connections.
 Creates a Chat Room abstraction, allowing multiple users to communicate in the chat room.
 Requires a known connection string or a roomName to be connected to the specific room.
 
 Defined in /cmd/disasternet/main.go like this. 
 
-```
+```go
 	roomFlag := flag.String("room", "chat-room", "name of chat room to join")
-
 ```
 This shall be passed while running the node through the terminal(as of now)
 
 ## How does it discover peers/other devices if offline?
-It uses ** MDNS(Multicast DNS) ** to discover peers in the same LAN network.
+It uses **MDNS(Multicast DNS)** to discover peers in the same LAN network.
 Its implementation is given in /cmd/internal/p2p/mdns.go
 
 Brief explanation about MDNS
@@ -57,11 +56,11 @@ Brief explanation about MDNS
 ### Steps to start backend
 - Go to /cmd/disasternet
 - Info about flags-
-- ** port ** :- Port where your host runs on.
-- ** same_string ** :- Used by MDNS to discover peers wanting to connect with each other, this should be same among the peers.
-- ** nick ** :- This will be your name displayed to all the peers connected.
-- ** room ** :- Name of the room, this should be same among all the peers.
-- ** enable-http ** :- Only run once while creating the host to setup backend api for frontend.
+- **port** :- Port where your host runs on.
+- **same_string** :- Used by MDNS to discover peers wanting to connect with each other, this should be same among the peers.
+- **nick** :- This will be your name displayed to all the peers connected.
+- **room** :- Name of the room, this should be same among all the peers.
+- **enable-http** :- Only run once while creating the host to setup backend api for frontend.
 - Eg: Run command
 ```console
     go run main.go --port 9000 --same_string xyz --room myroom --nick Abhi --enable-http true
