@@ -104,7 +104,3 @@ func (cr *ChatRoom) readLoop() {
 		cr.Messages <- cm
 	}
 }
-
-func (cr *ChatRoom) ListPeers() []peer.ID {
-	return cr.ps.ListPeers(topicName(cr.roomName))
-}
